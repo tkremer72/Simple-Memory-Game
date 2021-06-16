@@ -3,51 +3,51 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardsArray = [
     {
       name: "camera",
-      img: "images/camera.png",
+      img: "assets/images/camera.png",
     },
     {
       name: "fire",
-      img: "images/fire.png",
+      img: "assets/images/fire.png",
     },
     {
       name: "kitten",
-      img: "images/kitten.png",
+      img: "assets/images/kitten.png",
     },
     {
       name: "pirate",
-      img: "images/pirate.png",
+      img: "assets/images/pirate.png",
     },
     {
       name: "pokemon",
-      img: "images/pokemon.png",
+      img: "assets/images/pokemon.png",
     },
     {
       name: "thumbs",
-      img: "images/thumbs.png",
+      img: "assets/images/thumbs.png",
     },
     {
       name: "camera",
-      img: "images/camera.png",
+      img: "assets/images/camera.png",
     },
     {
       name: "fire",
-      img: "images/fire.png",
+      img: "assets/images/fire.png",
     },
     {
       name: "kitten",
-      img: "images/kitten.png",
+      img: "assets/images/kitten.png",
     },
     {
       name: "pirate",
-      img: "images/pirate.png",
+      img: "assets/images/pirate.png",
     },
     {
       name: "pokemon",
-      img: "images/pokemon.png",
+      img: "assets/images/pokemon.png",
     },
     {
       name: "thumbs",
-      img: "images/thumbs.png",
+      img: "assets/images/thumbs.png",
     },
   ];
 
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function createBoard() {
     for (let i = 0; i < cardsArray.length; i++) {
       const card = document.createElement("img");
-      card.setAttribute("src", "images/blank.png");
+      card.setAttribute("src", "assets/images/blank.png");
       card.setAttribute("data-id", i);
       card.addEventListener("click", flipCard);
       grid.appendChild(card);
@@ -80,12 +80,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const optionTwoId = cardsChosenId[1];
     if (cardsChosen[0] === cardsChosen[1]) {
       alert("You Found A Match!");
-      cards[optionOneId].setAttribute("src", "images/white.png");
-      cards[optionTwoId].setAttribute("src", "images/white.png");
+      cards[optionOneId].setAttribute("src", "assets/images/white.png");
+      cards[optionTwoId].setAttribute("src", "assets/images/white.png");
       cardsWon.push(cardsChosen);
     } else {
-      cards[optionOneId].setAttribute("src", "images/blank.png");
-      cards[optionTwoId].setAttribute("src", "images/blank.png");
+      cards[optionOneId].setAttribute("src", "assets/images/blank.png");
+      cards[optionTwoId].setAttribute("src", "assets/images/blank.png");
       alert("Sorry, Please Try Again!");
     }
     cardsChosen = [];
@@ -93,9 +93,13 @@ document.addEventListener("DOMContentLoaded", () => {
     resultDisplay.textContent = cardsWon.length;
     if (cardsWon.length === cardsArray.length / 2) {
       resultDisplay.textContent = "Congratulations! You Found Them All!";
+      autoRefresh(2500)
     }
   }
-
+//Reload the window after 3 seconds
+function autoRefresh(t) {
+  setTimeout("location.reload(true);", t)
+}
   //Flip your card
   function flipCard() {
     var cardId = this.getAttribute("data-id");
