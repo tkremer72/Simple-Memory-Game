@@ -17,3 +17,9 @@ Double click index.html file to run in browser.
      sort()
      For Loops
      createElement()
+
+# My Contributions To This Project.
+     Made the grid larger.
+     Added borders and grid-gap to the grid.
+     Added a game reset function.
+     Updated the styling on the game.
